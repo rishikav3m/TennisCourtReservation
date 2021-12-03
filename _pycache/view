@@ -1,0 +1,26 @@
+<HTML>
+	Today's Date: {{day}}
+	Court number: {{num}}
+	<form action='/view/court/{{num}}/{{prevDay}}' method='get'>
+		<input type='submit' value='Previous Day'>
+    </form>
+	<form action='/view/court/{{num}}/{{nextDay}}' method='get'>
+		<input type='submit' value='Next Day'>
+    </form>
+    <form action='/view/court/{{num-1}}/{{day}}' method='get'>
+		<input type='submit' value='Previous Court'>
+    </form>
+    <form action='/view/court/{{num+1}}/{{day}}' method='get'>
+		<input type='submit' value='Next Court'>
+    </form>     
+
+	{% for i in range(24) %}
+		<form action='/view/court/{{num}}/{{day}}/hour/{{i}}' method='post'>
+		{% if i not in daySched %}
+			{{i}}: <input type='text' name='user'> <input type='submit' value='Reserve!'> <br> 
+		{%else%}
+			{{i}}: {{daySched[i]}} <br>
+		{%endif%}
+		</form>
+	{%endfor%}
+</HTML> 
