@@ -1,0 +1,7 @@
+<HTML>
+      {% if invalidCourt %}
+         {{invalidCourt}} is an invalid court.
+      {% elif invalidDate %}
+         {{invalidDate}} is an invalid date.
+      {% endif %}
+</HTML> 
